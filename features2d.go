@@ -6,6 +6,7 @@ package gocv
 */
 import "C"
 import (
+	"image"
 	"image/color"
 	"reflect"
 	"unsafe"
@@ -310,6 +311,12 @@ func (a *MSER) Detect(src Mat) []KeyPoint {
 	defer C.KeyPoints_Close(ret)
 
 	return getKeyPoints(ret)
+}
+
+func (a *MSER) DetectRegions(src Mat) []image.Rectangle {
+	ret := C.MSER_DetectRegions((C.MSER)(a.p), src.p)
+	defer C.Rects_Close(ret)
+	return toRectangles(ret)
 }
 
 // ORB is a wrapper around the cv::ORB.
