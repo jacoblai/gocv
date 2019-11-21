@@ -14,7 +14,7 @@ Simply issue the command `make install_cuda` and you should be good to go.
 
 Then finally verify that it is all working 
 
-    cd $GOPATH/src/gocv.io/x/gocv
+    cd $GOPATH/src/github.com/jacoblai/gocv
 	go run ./cmd/cuda/main.go
 	
 You should see something along the lines of:
